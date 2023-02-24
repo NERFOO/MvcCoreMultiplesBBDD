@@ -1,0 +1,41 @@
+﻿@model MvcCoreMultiplesBBDD.Models.Empleado
+
+@{
+    ViewData["Title"] = "UpdateEmpleado";
+}
+
+<h1>UpdateEmpleado</h1>
+
+<h4>Empleado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateEmpleado">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input name="empleadoNum" class="form-control" value="@Model.EmpleadoNum" type="hidden" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Oficio" class="control-label"></label>
+                <input asp-for="Oficio" class="form-control" />
+                <span asp-validation-for="Oficio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salario" class="control-label"></label>
+                <input asp-for="Salario" class="form-control" />
+                <span asp-validation-for="Salario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
